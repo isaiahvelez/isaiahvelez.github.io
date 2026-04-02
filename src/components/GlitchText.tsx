@@ -14,18 +14,19 @@ const GlitchText: React.FC<GlitchTextProps> = ({ text, className, scrambleSpeed 
 
   const scramble = useCallback(() => {
     let iteration = 0;
+    const textArray = text.split('');
+    const currentArray = new Array(text.length);
+
     const interval = setInterval(() => {
-      setDisplayText(
-        text
-          .split('')
-          .map((_, index) => {
-            if (index < iteration) {
-              return text[index];
-            }
-            return chars[Math.floor(Math.random() * chars.length)];
-          })
-          .join('')
-      );
+      for (let i = 0; i < text.length; i++) {
+        if (i < iteration) {
+          currentArray[i] = textArray[i];
+        } else {
+          currentArray[i] = chars[Math.floor(Math.random() * chars.length)];
+        }
+      }
+
+      setDisplayText(currentArray.join(''));
 
       if (iteration >= text.length) {
         clearInterval(interval);
