@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Scene from './components/Scene';
-import { AudioProvider, useAudio } from './components/AudioProvider';
 import MagneticElement from './components/MagneticElement';
 import GlitchText from './components/GlitchText';
 import VaultCursor from './components/VaultCursor';
@@ -23,7 +21,6 @@ const subMessages = [
 ];
 
 const MainLayout: React.FC = () => {
-  const { playClick } = useAudio();
   const [hexProgress, setHexProgress] = useState(0);
   const [statusIndex, setStatusIndex] = useState(0);
   const [messageIndex, setMessageIndex] = useState(0);
@@ -92,8 +89,6 @@ const MainLayout: React.FC = () => {
     <main className="relative w-full h-full overflow-hidden bg-onyx">
       {/* Background Grid Pattern */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')]" />
-
-      <Scene />
 
       {showCursor && <div className="pointer-events-none"><VaultCursor /></div>}
 
@@ -169,22 +164,22 @@ const MainLayout: React.FC = () => {
             </div>
             <div className="mt-6 flex gap-6 text-silver/40">
               <MagneticElement strength={0.2}>
-                <a href="https://github.com/isaiahvelez" target="_blank" rel="noreferrer" className="hover:text-silver transition-colors" onMouseEnter={playClick}>
+                <a href="https://github.com/isaiahvelez" target="_blank" rel="noreferrer" className="hover:text-silver transition-colors">
                   <Github size={18} />
                 </a>
               </MagneticElement>
               <MagneticElement strength={0.2}>
-                <a href="https://www.linkedin.com/in/isaiahvelez" target="_blank" rel="noreferrer" className="hover:text-silver transition-colors" onMouseEnter={playClick}>
+                <a href="https://www.linkedin.com/in/isaiahvelez" target="_blank" rel="noreferrer" className="hover:text-silver transition-colors">
                   <Linkedin size={18} />
                 </a>
               </MagneticElement>
               <MagneticElement strength={0.2}>
-                <a href="https://www.instagram.com/isaiahmvelez" target="_blank" rel="noreferrer" className="hover:text-silver transition-colors" onMouseEnter={playClick}>
+                <a href="https://www.instagram.com/isaiahmvelez" target="_blank" rel="noreferrer" className="hover:text-silver transition-colors">
                   <Instagram size={18} />
                 </a>
               </MagneticElement>
               <MagneticElement strength={0.2}>
-                <button onClick={handleShare} className="hover:text-silver transition-colors" onMouseEnter={playClick}>
+                <button onClick={handleShare} className="hover:text-silver transition-colors">
                   {isCopied ? <Check size={18} /> : <Share2 size={18} />}
                 </button>
               </MagneticElement>
@@ -217,7 +212,6 @@ const MainLayout: React.FC = () => {
 
             <MagneticElement strength={0.3}>
               <button
-                onMouseEnter={playClick}
                 className="group relative px-10 py-5 bg-silver text-onyx font-oswald text-sm md:text-base tracking-[0.2em] uppercase overflow-hidden transition-all duration-500 hover:tracking-[0.3em] liquid-shine"
               >
                 <div className="relative z-10 flex items-center gap-3">
@@ -235,9 +229,7 @@ const MainLayout: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <AudioProvider>
-      <MainLayout />
-    </AudioProvider>
+    <MainLayout />
   );
 };
 
