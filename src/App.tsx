@@ -203,9 +203,9 @@ const MainLayout: React.FC = () => {
 
             <div className="md:hidden flex justify-center gap-6 mt-4 mb-8 text-silver/40 bg-onyx/50 py-2 rounded-lg pointer-events-auto">
               {/* Mobile Socials */}
-              <a href="https://github.com/isaiahvelez" target="_blank" rel="noreferrer" className="active:text-silver transition-colors"><Github size={18} /></a>
-              <a href="https://www.linkedin.com/in/isaiahvelez" target="_blank" rel="noreferrer" className="active:text-silver transition-colors"><Linkedin size={18} /></a>
-              <a href="https://www.instagram.com/isaiahmvelez" target="_blank" rel="noreferrer" className="active:text-silver transition-colors"><Instagram size={18} /></a>
+              <a href="https://github.com/isaiahvelez" target="_blank" rel="noopener noreferrer" className="active:text-silver transition-colors"><Github size={18} /></a>
+              <a href="https://www.linkedin.com/in/isaiahvelez" target="_blank" rel="noopener noreferrer" className="active:text-silver transition-colors"><Linkedin size={18} /></a>
+              <a href="https://www.instagram.com/isaiahmvelez" target="_blank" rel="noopener noreferrer" className="active:text-silver transition-colors"><Instagram size={18} /></a>
               <button onClick={handleShare} className="active:text-silver transition-colors">{isCopied ? <Check size={18} /> : <Share2 size={18} />}</button>
             </div>
 
